@@ -2,9 +2,7 @@
 
 
 
-## Link do projeto: 
-
-
+## Link do projeto: https://buscador-de-cep-bruno-staine.netlify.app/
 
 ## Linguagens
 - React
