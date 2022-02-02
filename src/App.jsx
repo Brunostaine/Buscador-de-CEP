@@ -10,7 +10,7 @@ function App() {
       <div className="containerInput">
         <input
         type="text"
-        placeholder="Digite seu cep..."
+        placeholder="Digite seu CEP aqui"
          />
 
          <button className="buttonSearch">
@@ -18,7 +18,7 @@ function App() {
          </button>
       </div>
 
-      <main>
+      <main className="main">
         <h2>CEP: 79001123</h2>
 
         <span>Rua de teste</span>
