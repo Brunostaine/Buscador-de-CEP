@@ -7,6 +7,7 @@ import api from './services/api';
 function App() {
 
   const [input, setInput] = useState ('')
+  const [cep, setCep] = useState ({});
 
   async function handleSearch () {
     // https://viacep.com.br/ws/01001000/json/
@@ -18,7 +19,8 @@ function App() {
 
     try {
       const response = await api.get(`${input}/json`)
-      console.log(response.data)
+      setCep(response.data)
+      setInput('');
     }
     catch {
       alert("ops, erro ao buscar")
@@ -43,14 +45,18 @@ function App() {
          </button>
       </div>
 
-      <main className="main">
-        <h2>CEP: 79001123</h2>
+      {Object.keys(cep).length > 0 && (
+        <main className="main">
+          <h2>CEP: {cep.cep}</h2>
 
-        <span>Rua de teste</span>
-        <span>Complemento: não tem</span>
-        <span>jardin bonito</span>
-        <span>Brasília - DF</span>
-      </main>
+          <span>{cep.logradouro}</span>
+          <span>Complemento: {cep.complemento}</span>
+          <span>{cep.bairro}</span>
+          <span>{cep.localidade} - {cep.uf}</span>
+        </main>
+      )}
+
+      
       
     </div>
 
